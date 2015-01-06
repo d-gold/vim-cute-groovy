@@ -108,7 +108,11 @@ syntax match groovyRLArrow3 contained "\s\+" conceal cchar=
 syntax match groovyRLArrowFull "\s\+=\s\+" contains=groovyRLArrow1,groovyRLArrow2,groovyRLArrow3
 
 " Operations
-syntax match groovyNiceOperator "\<copyOf\>" conceal cchar=⊷
+syntax match groovyCopyOf1 contained "\<c" conceal cchar= 
+syntax match groovyCopyOf2 contained "o" conceal cchar=⊷
+syntax match groovyCopyOf3 contained "pyOf\>" conceal cchar= 
+syntax match groovyCopyOfFull "\<copyOf\>" contains=groovyCopyOf1,groovyCopyOf2,groovyCopyOf3
+
 "syntax match groovyNiceOperator "\<clone\>" conceal cchar=⊷
 "syntax match groovyNiceOperator "\<plus\>" conceal cchar=⊺ " Add to list
 syntax match groovyNiceOperator "\s!\s*every\>" conceal cchar=∄

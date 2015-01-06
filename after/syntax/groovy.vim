@@ -108,8 +108,8 @@ syntax match groovyRLArrow3 contained "\s\+" conceal cchar=
 syntax match groovyRLArrowFull "\s\+=\s\+" contains=groovyRLArrow1,groovyRLArrow2,groovyRLArrow3
 
 " Operations
-syntax match groovyCopyOf1 contained "\<c" conceal cchar= 
-syntax match groovyCopyOf2 contained "o" conceal cchar=⊷
+syntax match groovyCopyOf1 contained "\<c" conceal cchar=⊷ 
+syntax match groovyCopyOf2 contained "o" conceal cchar= 
 syntax match groovyCopyOf3 contained "pyOf\>" conceal cchar= 
 syntax match groovyCopyOfFull "\<copyOf\>" contains=groovyCopyOf1,groovyCopyOf2,groovyCopyOf3
 
@@ -196,33 +196,36 @@ if !Cf('s')
 endif
 
 if Cf('S')
-    syntax keyword groovyNiceStatement A conceal cchar=𝐀
-    syntax keyword groovyNiceStatement B conceal cchar=𝐁
-    syntax keyword groovyNiceStatement C conceal cchar=𝐂
-    syntax keyword groovyNiceStatement D conceal cchar=𝐃
-    syntax keyword groovyNiceStatement E conceal cchar=𝐄
-    syntax keyword groovyNiceStatement F conceal cchar=𝐅
-    syntax keyword groovyNiceStatement G conceal cchar=𝐆
-    syntax keyword groovyNiceStatement H conceal cchar=𝐇
-    syntax keyword groovyNiceStatement I conceal cchar=𝐈
-    syntax keyword groovyNiceStatement J conceal cchar=𝐉
-    syntax keyword groovyNiceStatement K conceal cchar=𝐊
-    syntax keyword groovyNiceStatement L conceal cchar=𝐋
-    syntax keyword groovyNiceStatement M conceal cchar=𝐌
-    syntax keyword groovyNiceStatement N conceal cchar=𝐍
-    syntax keyword groovyNiceStatement O conceal cchar=𝐎
-    syntax keyword groovyNiceStatement P conceal cchar=𝐏
-    syntax keyword groovyNiceStatement Q conceal cchar=𝐐
-    syntax keyword groovyNiceStatement R conceal cchar=𝐑
-    syntax keyword groovyNiceStatement S conceal cchar=𝐒
-    syntax keyword groovyNiceStatement T conceal cchar=𝐓
-    syntax keyword groovyNiceStatement U conceal cchar=𝐔
-    syntax keyword groovyNiceStatement V conceal cchar=𝐕
-    syntax keyword groovyNiceStatement W conceal cchar=𝐖
-    syntax keyword groovyNiceStatement X conceal cchar=𝐗
-    syntax keyword groovyNiceStatement Y conceal cchar=𝐘
-    syntax keyword groovyNiceStatement Z conceal cchar=𝐙
+    syntax keyword groovyNiceStatement A conceal cchar=𝐴
+    syntax keyword groovyNiceStatement B conceal cchar=𝐵
+    syntax keyword groovyNiceStatement C conceal cchar=𝐶
+    syntax keyword groovyNiceStatement D conceal cchar=𝐷
+    syntax keyword groovyNiceStatement E conceal cchar=𝐸
+    syntax keyword groovyNiceStatement F conceal cchar=𝐹
+    syntax keyword groovyNiceStatement G conceal cchar=𝐺
+    syntax keyword groovyNiceStatement H conceal cchar=𝐻
+    syntax keyword groovyNiceStatement I conceal cchar=𝐼
+    syntax keyword groovyNiceStatement J conceal cchar=𝐽
+    syntax keyword groovyNiceStatement K conceal cchar=𝐾
+    syntax keyword groovyNiceStatement L conceal cchar=𝐿
+    syntax keyword groovyNiceStatement M conceal cchar=𝑀
+    syntax keyword groovyNiceStatement N conceal cchar=𝑁
+    syntax keyword groovyNiceStatement O conceal cchar=𝑂
+    syntax keyword groovyNiceStatement P conceal cchar=𝑃
+    syntax keyword groovyNiceStatement Q conceal cchar=𝑄
+    syntax keyword groovyNiceStatement R conceal cchar=𝑅
+    syntax keyword groovyNiceStatement S conceal cchar=𝑆
+    syntax keyword groovyNiceStatement T conceal cchar=𝑇
+    syntax keyword groovyNiceStatement U conceal cchar=𝑈
+    syntax keyword groovyNiceStatement V conceal cchar=𝑉
+    syntax keyword groovyNiceStatement W conceal cchar=𝑊
+    syntax keyword groovyNiceStatement X conceal cchar=𝑋
+    syntax keyword groovyNiceStatement Y conceal cchar=𝑌
+    syntax keyword groovyNiceStatement Z conceal cchar=𝑍
 endif
+
+" Function? 𝓯 𝕗
+" Monad? 𝓶 𝕞
 
 " Handle exponentiation
 " '1' option to disable numeric superscripts concealing, e.g. x².

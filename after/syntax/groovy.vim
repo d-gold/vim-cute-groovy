@@ -45,6 +45,7 @@ syntax match groovyFalse3 contained "lse\>" conceal cchar=
 syntax match groovyFalse "\<false\>" contains=groovyFalse1,groovyFalse2,groovyFalse3
 "syntax match groovyNiceBoolean "\<false\>" conceal cchar=𝐅
 
+
 " Comparisons
 syntax match groovyNiceOperator "\s<=\s" conceal cchar=≤
 syntax match groovyNiceOperator "\s>=\s" conceal cchar=≥
@@ -188,7 +189,9 @@ if !Cf('s')
     syntax keyword groovyNiceStatement x conceal cchar=𝒙
     syntax keyword groovyNiceStatement y conceal cchar=𝒚
     syntax keyword groovyNiceStatement z conceal cchar=𝒛
+endif
 
+if Cf('S')
     syntax keyword groovyNiceStatement A conceal cchar=𝐀
     syntax keyword groovyNiceStatement B conceal cchar=𝐁
     syntax keyword groovyNiceStatement C conceal cchar=𝐂
@@ -265,7 +268,7 @@ endif
 
 " Fractions
 " 'f' option to enables fractions
-if !Cf('f')
+if Cf('f')
     syntax keyword groovyNiceBuiltin 0.25 conceal cchar=¼
     syntax keyword groovyNiceBuiltin 0.5 conceal cchar=½
     syntax keyword groovyNiceBuiltin 0.75 conceal cchar=¾

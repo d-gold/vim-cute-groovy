@@ -118,8 +118,20 @@ syntax match groovyCopyOfFull "\<copyOf\>" contains=groovyCopyOf1,groovyCopyOf2,
 syntax match groovyNiceOperator "\s!\s*every\>" conceal cchar=∄
 syntax match groovyNiceOperator "\severy\>" conceal cchar=∀
 syntax match groovyNiceOperator "\<any\>" conceal cchar=∃
-syntax match groovyNiceBuiltin "\<size\>" conceal cchar=#
-"syntax match groovyNiceBuiltin "\<count\>" conceal cchar=#
+
+syntax match groovySize1 contained "\<s" conceal cchar=#
+syntax match groovySize2 contained "ize\>" conceal cchar=ₛ
+syntax match groovySize "\<size\>" contains=groovySize1,groovySize2
+
+syntax match groovyCount1 contained "\<c" conceal cchar=#
+syntax match groovyCount2 contained "ount\>" conceal cchar=ₙ
+syntax match groovyCount "\<count\>" contains=groovyCount1,groovyCount2
+
+syntax match groovyLength1 contained "\<l" conceal cchar=#
+syntax match groovyLength2 contained "ength" conceal cchar=ₗ
+syntax match groovyLength "\<length\>" contains=groovyLength1,groovyLength2
+
+
 syntax match groovyNiceOperator "\<join\>" conceal cchar=∪
 syntax match groovyNiceOperator "\<intersection\>" conceal cchar=∩
 

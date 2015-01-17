@@ -20,6 +20,11 @@ syn keyword groovyType		  Double Boolean Float Vector
 
 syntax keyword groovyNiceStatement Closure conceal cchar=λ
 
+" syntax match groovyDefFunction1 contained "\<def" conceal cchar=ƒ
+"syntax match groovyDefFunction2 contained "\s\+[_A-Za-z][_A-Za-z0-9]*\s*=\s*{"
+" syntax match groovyDefFunction "\<def\s\+[_A-Za-z][_A-Za-z0-9]*\s*=\s*{" contains=groovyDefFunction1  ",groovyDefFunction2
+" syntax match groovyDefFunction "\<def\s\+[_A-Za-z][_A-Za-z0-9]*" contains=groovyDefFunction1  ",groovyDefFunction2
+
 " Variable Arguments
 syntax match groovyNiceOperator "\.\@<!\.\.\.\.\@!" conceal cchar=⋯
 
@@ -81,6 +86,8 @@ syntax match groovyNiceOperator "\<multiply\>" conceal cchar=⋅
 syntax match groovyNiceOperator "\s/\s" conceal cchar=÷
 syntax match groovyNiceOperator "\<div\>" conceal cchar=÷
 syntax match groovyNiceOperator "\<sqrt\>" conceal cchar=√
+syntax match groovyNiceOperator "\<floor\>" conceal cchar=⌊
+syntax match groovyNiceOperator "\<ceil\>" conceal cchar=⌈
 
 " Sets
 syntax match groovyNiceOperator "\<in\>" conceal cchar=∈
@@ -115,9 +122,17 @@ syntax match groovyCopyOfFull "\<copyOf\>" contains=groovyCopyOf1,groovyCopyOf2,
 
 "syntax match groovyNiceOperator "\<clone\>" conceal cchar=⊷
 "syntax match groovyNiceOperator "\<plus\>" conceal cchar=⊺ " Add to list
-syntax match groovyNiceOperator "\s!\s*every\>" conceal cchar=∄
-syntax match groovyNiceOperator "\severy\>" conceal cchar=∀
-syntax match groovyNiceOperator "\<any\>" conceal cchar=∃
+"
+" There Exists and For All handling
+if !Cf('A')
+"    syntax match groovyNiceOperator "\s!\s*every\>" conceal cchar=∄
+    syntax match groovyNiceOperator "\<each\>" conceal cchar=∀
+    syntax match groovyNiceOperator "\<find\>" conceal cchar=∃
+else
+    syntax match groovyNiceOperator "\s!\s*every\>" conceal cchar=∄
+    syntax match groovyNiceOperator "\severy\>" conceal cchar=∀
+    syntax match groovyNiceOperator "\<any\>" conceal cchar=∃
+endif
 
 syntax match groovySize1 contained "\<s" conceal cchar=#
 syntax match groovySize2 contained "ize\>" conceal cchar=ₛ
@@ -131,9 +146,10 @@ syntax match groovyLength1 contained "\<l" conceal cchar=#
 syntax match groovyLength2 contained "ength" conceal cchar=ₗ
 syntax match groovyLength "\<length\>" contains=groovyLength1,groovyLength2
 
+syntax keyword groovyNiceReturn return conceal cchar=↵
 
 syntax match groovyNiceOperator "\<join\>" conceal cchar=∪
-syntax match groovyNiceOperator "\<intersection\>" conceal cchar=∩
+syntax match groovyNiceOperator "\<intersect\>" conceal cchar=∩
 
 " Map: ↦
 syntax match groovyNiceOperator "\<collect\>" conceal cchar=↦
@@ -178,7 +194,7 @@ syntax match groovyNiceOperator "\s>>\s" conceal cchar=»
 " Single character variable names usually indicate something generic and
 " should be emphasized. eg 𝒇(𝒊)
 " 's' Option to disable this.
-if !Cf('s')
+if !Cf('S')
     syntax keyword groovyNiceStatement a conceal cchar=𝒂
     syntax keyword groovyNiceStatement b conceal cchar=𝒃
     syntax keyword groovyNiceStatement c conceal cchar=𝒄
@@ -207,7 +223,7 @@ if !Cf('s')
     syntax keyword groovyNiceStatement z conceal cchar=𝒛
 endif
 
-if Cf('S')
+if Cf('s')
     syntax keyword groovyNiceStatement A conceal cchar=𝐴
     syntax keyword groovyNiceStatement B conceal cchar=𝐵
     syntax keyword groovyNiceStatement C conceal cchar=𝐶

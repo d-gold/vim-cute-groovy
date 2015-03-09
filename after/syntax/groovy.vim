@@ -55,7 +55,10 @@ syntax match groovyFalse "\<false\>" contains=groovyFalse1,groovyFalse2,groovyFa
 syntax match groovyNiceOperator "\s<=\s" conceal cchar=≤
 syntax match groovyNiceOperator "\s>=\s" conceal cchar=≥
 syntax match groovyNiceOperator "=\@<!===\@!" conceal cchar=≡
-syntax match groovyNiceOperator "!=" conceal cchar=≢
+
+syntax match groovyNeq1 contained "\s!" conceal cchar= 
+syntax match groovyNeq2 contained "=\s" conceal cchar=≢
+syntax match groovyNeqFull "\s!=\s" contains=groovyNeq1,groovyNeq2
 
 " Boolean operations
 syntax match groovyOr1 contained "\s|" conceal cchar=∨
@@ -66,11 +69,18 @@ syntax match groovyAnd1 contained "\s&" conceal cchar=∧
 syntax match groovyAnd2 contained "&\s" conceal cchar= 
 syntax match groovyAndFull "\s&&\s" contains=groovyAnd1,groovyAnd2
 
-syntax match groovyNiceOperator "\s&&\s*!" conceal cchar=⊼
-syntax match groovyNiceOperator "\s||\s*!" conceal cchar=⊽
+syntax match groovyNand1 contained "\s&" conceal cchar=⊼
+syntax match groovyNand2 contained "&\s*!" conceal cchar= 
+syntax match groovyNandFull "\s&&\s*!" contains=groovyNand1,groovyNand2
+
+syntax match groovyNor1 contained "\s|" conceal cchar=⊽
+syntax match groovyNor2 contained "|\s*!" conceal cchar= 
+syntax match groovyNorFull "\s||\s*!" contains=groovyNor1,groovyNor2
+
 syntax match groovyNiceOperator "\s^\s" conceal cchar=⊻
+
 syntax match groovyNiceOperator "\<not\>" conceal cchar=¬
-syntax match groovyNiceOperator "!" conceal cchar=¬ 
+syntax match groovyNiceOperator "!\@<!!=\@!" conceal cchar=¬ 
 
 " Types
 syntax match groovyNiceType "\<Boolean\>" conceal cchar=𝔹
